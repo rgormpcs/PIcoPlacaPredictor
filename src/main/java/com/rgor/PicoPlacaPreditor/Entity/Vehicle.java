@@ -5,9 +5,11 @@ import lombok.Data;
 @Data
 public class Vehicle {
     private String plate;
-    private Boolean beOnTheRoad;
+    private String restrictedDay;
 
-    public void Vehicle(String plate){
+ 
+
+    public  Vehicle(String plate){
         this.plate=plate;
     }
 

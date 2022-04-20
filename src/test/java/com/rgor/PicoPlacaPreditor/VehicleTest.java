@@ -1,18 +1,23 @@
 package com.rgor.PicoPlacaPreditor;
 
-import com.rgor.PicoPlacaPreditor.Interface.VehicleImplements;
-import com.rgor.PicoPlacaPreditor.Interface.VehicleInterface;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.rgor.PicoPlacaPreditor.DAO.VehicleImplements;
+import com.rgor.PicoPlacaPreditor.DAO.VehicleInterface;
+import com.rgor.PicoPlacaPreditor.Entity.MomentRestricted;
+import com.rgor.PicoPlacaPreditor.Entity.Vehicle;
+
 @SpringBootTest
 public class VehicleTest {
 
-    VehicleImplements vehicleImplements = new VehicleImplements();
+    VehicleInterface vehicleImplements = new VehicleImplements();
     @Test
     public void canbeOnRoadTest(){
-        Assertions.assertEquals("el auto con placas pbo123", vehicleImplements.camBeOnTHeRoad("pbo123"));
+        Vehicle vehicle = new Vehicle("pbo123");
+        
+        Assertions.assertEquals("el auto con placas pbo123 no puede circular", vehicleImplements.getRestrictedDay(vehicle));
     }
 }
