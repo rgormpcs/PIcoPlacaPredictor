@@ -38,7 +38,8 @@ public class MomentRestrictedImplements implements MomentRestrictedInterface {
                     break;
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            dayOfMoment="ingrese una fecha correcta en formato dd/MM/yyyy";
+            System.out.println(dayOfMoment+e);;
         }
         return dayOfMoment;
 

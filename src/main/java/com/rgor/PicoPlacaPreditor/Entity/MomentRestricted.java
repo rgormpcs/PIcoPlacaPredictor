@@ -1,5 +1,6 @@
 package com.rgor.PicoPlacaPreditor.Entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 
@@ -11,7 +12,6 @@ public class MomentRestricted {
     private String date;
     private String time;
 
-   
     public  MomentRestricted(String date, String time){
     this.date=date;
     this.time=time;
