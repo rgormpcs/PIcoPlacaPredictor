@@ -18,9 +18,9 @@ public class VehicleTest {
 
     VehicleInterface vehicleImplements = new VehicleImplements();
     @Test
-    public void canbeOnRoadTest(){
-        Vehicle vehicle = new Vehicle("pbo123");
+    public void getDayRestriction(){
+        Vehicle vehicle = new Vehicle("pbo127");
         
-        Assertions.assertEquals("el auto con placas pbo123 no puede circular", vehicleImplements.getRestrictedDay(vehicle));
+        Assertions.assertEquals("Jueves", vehicleImplements.getRestrictedDay(vehicle));
     }
 }

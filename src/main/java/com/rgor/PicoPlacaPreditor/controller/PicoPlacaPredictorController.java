@@ -5,9 +5,10 @@
 package com.rgor.PicoPlacaPreditor.controller;
 
 
+import com.rgor.PicoPlacaPreditor.DAO.MomentRestrictedImplements;
+import com.rgor.PicoPlacaPreditor.DAO.MomentRestrictedInterface;
 import com.rgor.PicoPlacaPreditor.DAO.VehicleImplements;
 import com.rgor.PicoPlacaPreditor.DAO.VehicleInterface;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,11 +28,19 @@ public class PicoPlacaPredictorController {
   
 
     @GetMapping("/predict/{plate}/{date}/{time}")
-    public String get(@PathVariable String plate, String date,String time) {
-       Vehicle vehicle = new Vehicle(plate);
+    public String canBeOntheRoad(@PathVariable String plate, String date,String time) {
+       String message="";
+        Vehicle vehicle = new Vehicle(plate);
+
        MomentRestricted  moment = new MomentRestricted(date, time);
-        
-        return vehicleInterface.getRestrictedDay(vehicle);
+        MomentRestrictedInterface momentRestrictedInterface=new MomentRestrictedImplements();
+        VehicleInterface vehicleInterface= new VehicleImplements();
+        if((vehicleInterface.getRestrictedDay(vehicle).equals(momentRestrictedInterface.dayOfMomentRestricted(moment))) && (momentRestrictedInterface.isRestrictedTime(moment))){
+            message= "El vehiculo con placas "+ vehicle.getPlate()+" no puede circular";
+        }else{
+            message= "El vehiculo con placas "+ vehicle.getPlate()+" puede circular";
+        }
+        return message;
     }
     
     

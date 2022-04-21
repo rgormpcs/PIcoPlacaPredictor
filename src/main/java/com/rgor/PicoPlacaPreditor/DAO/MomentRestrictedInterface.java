@@ -10,6 +10,6 @@ import com.rgor.PicoPlacaPreditor.Entity.MomentRestricted;
  */
 public interface MomentRestrictedInterface {
     public String dayOfMomentRestricted(MomentRestricted momentRestricted);
-    public boolean  restrictedTime(MomentRestricted momentRestricted);
+    public boolean isRestrictedTime(MomentRestricted momentRestricted);
     
 }

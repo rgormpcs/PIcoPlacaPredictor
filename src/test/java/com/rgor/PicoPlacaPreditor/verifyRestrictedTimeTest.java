@@ -21,16 +21,42 @@ public class verifyRestrictedTimeTest {
     
      @Test
     public void verifyRestrictedTimeTest(){
-        MomentRestricted moment = new MomentRestricted("05/02/2020", "8:59");
-         Assertions.assertEquals(true, momentRestrictedInterface.restrictedTime(moment));
-         MomentRestricted moment2 = new MomentRestricted("05/02/2020", "16:00");
-         Assertions.assertEquals(true, momentRestrictedInterface.restrictedTime(moment2));
+        MomentRestricted moment = new MomentRestricted("05/02/2020", "7:00");
+         Assertions.assertEquals(true, momentRestrictedInterface.isRestrictedTime(moment));
+    }
+    @Test
+    public void verifyRestrictedTimeTest2(){
+        MomentRestricted moment2 = new MomentRestricted("05/02/2020", "9:00");
+        Assertions.assertEquals(true, momentRestrictedInterface.isRestrictedTime(moment2));
+    }
+    @Test
+    public void verifyRestrictedTimeTest3(){
+        MomentRestricted moment = new MomentRestricted("05/02/2020", "16:00");
+        Assertions.assertEquals(true, momentRestrictedInterface.isRestrictedTime(moment));
+    }
+    @Test
+    public void verifyRestrictedTimeTest4(){
+        MomentRestricted moment2 = new MomentRestricted("05/02/2020", "19:30");
+        Assertions.assertEquals(true, momentRestrictedInterface.isRestrictedTime(moment2));
     }
      @Test
       public void verifyNORestrictedTimeTest(){
-        MomentRestricted moment = new MomentRestricted("05/02/2020", "10:00");
-         Assertions.assertEquals(false, momentRestrictedInterface.restrictedTime(moment));
-         MomentRestricted moment2 = new MomentRestricted("05/02/2020", "15:59");
-         Assertions.assertEquals(false, momentRestrictedInterface.restrictedTime(moment2));
+        MomentRestricted moment = new MomentRestricted("05/02/2020", "9:31");
+         Assertions.assertEquals(false, momentRestrictedInterface.isRestrictedTime(moment));
+    }
+    @Test
+    public void verifyNORestrictedTimeTest2(){
+        MomentRestricted moment2 = new MomentRestricted("05/02/2020", "15:59");
+        Assertions.assertEquals(false, momentRestrictedInterface.isRestrictedTime(moment2));
+    }
+    @Test
+    public void verifyNORestrictedTimeTest3(){
+        MomentRestricted moment = new MomentRestricted("05/02/2020", "19:31");
+        Assertions.assertEquals(false, momentRestrictedInterface.isRestrictedTime(moment));
+    }
+    @Test
+    public void verifyNORestrictedTimeTest4(){
+        MomentRestricted moment2 = new MomentRestricted("05/02/2020", "6:59");
+        Assertions.assertEquals(false, momentRestrictedInterface.isRestrictedTime(moment2));
     }
 }

@@ -21,7 +21,7 @@ public class VehicleImplements implements VehicleInterface{
         }else if (lastDigit==9 || lastDigit==0){
             restrictDayOfVehicle= "Viernes";
         }
-        return "el auto con placas "+vehicle.getPlate()+" no puede circular";
+        return restrictDayOfVehicle;
     }
     @Override
     public String extractNumberPlate(String plate){

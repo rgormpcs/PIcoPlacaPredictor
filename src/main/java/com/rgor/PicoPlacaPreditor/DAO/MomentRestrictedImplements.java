@@ -45,7 +45,7 @@ public class MomentRestrictedImplements implements MomentRestrictedInterface {
 }
 
     @Override
-    public boolean restrictedTime(MomentRestricted momentRestricted) {
+    public boolean isRestrictedTime(MomentRestricted momentRestricted) {
         String[] timeSplit = momentRestricted.getTime().split(":");
         boolean virified=false;
         try {
@@ -53,7 +53,7 @@ public class MomentRestrictedImplements implements MomentRestrictedInterface {
             int minutes = Integer.parseInt(timeSplit[1]);
             if ((hour >= 7 && hour <= 9) || (hour >= 16 && hour <= 19)) {
                 if (hour == 9 || hour == 19) {
-                    if ((minutes > 0 && minutes <= 30)) {
+                    if ((minutes >= 0 && minutes <= 30)) {
                         virified=true;
                     } else {
                         virified=false;
