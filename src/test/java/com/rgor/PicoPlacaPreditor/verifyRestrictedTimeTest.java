@@ -10,11 +10,11 @@ import com.rgor.PicoPlacaPreditor.Entity.MomentRestricted;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
 /**
  *
  * @author rortiz
  */
+
 @SpringBootTest
 public class verifyRestrictedTimeTest {
     MomentRestrictedInterface momentRestrictedInterface= new MomentRestrictedImplements();

@@ -6,6 +6,9 @@ package com.rgor.PicoPlacaPreditor.DAO;
 
 import com.rgor.PicoPlacaPreditor.Entity.MomentRestricted;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author rortiz
@@ -14,8 +17,32 @@ public class MomentRestrictedImplements implements MomentRestrictedInterface {
 
     @Override
     public String dayOfMomentRestricted(MomentRestricted momentRestricted) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        SimpleDateFormat format=new SimpleDateFormat("dd/MM/yyyy");
+        String dayOfMoment="";
+        try {
+            Date dateTransform = format.parse(momentRestricted.getDate());
+            switch (dateTransform.getDay()){
+                case 1: dayOfMoment="Lunes";
+                    break;
+                case 2: dayOfMoment="Martes";
+                    break;
+                case 3: dayOfMoment="Miercoles";
+                    break;
+                case 4: dayOfMoment="Jueves";
+                    break;
+                case 5: dayOfMoment="Viernes";
+                    break;
+                case 6: dayOfMoment="Sabado";
+                    break;
+                case 0: dayOfMoment="Domingo";
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dayOfMoment;
+
+}
 
     @Override
     public boolean restrictedTime(MomentRestricted momentRestricted) {

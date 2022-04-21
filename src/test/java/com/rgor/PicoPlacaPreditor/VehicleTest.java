@@ -9,7 +9,10 @@ import com.rgor.PicoPlacaPreditor.DAO.VehicleImplements;
 import com.rgor.PicoPlacaPreditor.DAO.VehicleInterface;
 import com.rgor.PicoPlacaPreditor.Entity.MomentRestricted;
 import com.rgor.PicoPlacaPreditor.Entity.Vehicle;
-
+/**
+ *
+ * @author rortiz
+ */
 @SpringBootTest
 public class VehicleTest {
 

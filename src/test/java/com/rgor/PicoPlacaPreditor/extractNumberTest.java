@@ -9,11 +9,11 @@ import com.rgor.PicoPlacaPreditor.DAO.VehicleInterface;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
 /**
  *
  * @author rortiz
  */
+
 @SpringBootTest
 public class extractNumberTest {
     VehicleInterface vehicleInterface = new VehicleImplements();

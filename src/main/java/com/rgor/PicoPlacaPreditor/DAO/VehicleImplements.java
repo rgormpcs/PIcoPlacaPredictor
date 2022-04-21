@@ -1,6 +1,9 @@
 package com.rgor.PicoPlacaPreditor.DAO;
 import com.rgor.PicoPlacaPreditor.Entity.Vehicle;
-
+/**
+ *
+ * @author rortiz
+ */
 public class VehicleImplements implements VehicleInterface{
     @Override
     public String getRestrictedDay(Vehicle vehicle) {
